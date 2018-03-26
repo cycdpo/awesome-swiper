@@ -41,7 +41,21 @@ hr {
       color: 'white'
     }
   });
-</script><a class="code-button" href="https://github.com/cycdpo/awesome-swiper/blob/master/demo/changeColor.html" target="_blank">CODE</a><hr></section><section><h2>Change Navigation Style</h2><style>#changeNavigationStyle {
+</script><a class="code-button" href="https://github.com/cycdpo/awesome-swiper/blob/master/demo/changeColor.html" target="_blank">CODE</a><hr></section><section><h2>Dynamic Bullets Pagination</h2><style>#dynamicBulletsPagination {
+  width: 800px;
+  height: 450px;
+}
+</style><div class="swiper-container" id="dynamicBulletsPagination"><div class="swiper-wrapper"><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p1.jpg"></a></div><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p2.jpg"></a></div><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p3.jpg"></a></div><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p4.jpg"></a></div><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p5.jpg"></a></div></div></div><script>new AwesomeSwiper()
+  .init('#dynamicBulletsPagination', {
+    pagination: {
+      color: 'white',
+      dynamicBullets: true
+    },
+    navigation: {
+      color: 'white'
+    }
+  });
+</script><a class="code-button" href="https://github.com/cycdpo/awesome-swiper/blob/master/demo/dynamicBulletsPagination.html" target="_blank">CODE</a><hr></section><section><h2>Change Navigation Style</h2><style>#changeNavigationStyle {
   width: 800px;
   height: 450px;
 }
@@ -82,6 +96,7 @@ hr {
   height: 450px;
   margin-right: 20px;
   background: url(leftBlack.svg) no-repeat 50% 50%;
+  outline: none;
 }
 
 #customNavigationElements {
@@ -96,6 +111,7 @@ hr {
   height: 450px;
   margin-left: 20px;
   background: url(rightBlack.svg) no-repeat 50% 50%;
+  outline: none;
 }
 </style><div class="customNavigationDemo"><div id="customPrevEl"></div><div class="swiper-container" id="customNavigationElements"><div class="swiper-wrapper"><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p1.jpg"></a></div><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p2.jpg"></a></div><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p3.jpg"></a></div><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p4.jpg"></a></div><div class="swiper-slide"><a class="swiper-full-img" href="javascript:;"><img src="p5.jpg"></a></div></div></div><div id="customNextEl"></div></div><script>new AwesomeSwiper()
   .init('#customNavigationElements', {
