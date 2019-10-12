@@ -1,7 +1,7 @@
 // style
 if (DEVELOPMENT || STANDALONE) {
   console.log('development');
-  require('swiper/css/swiper.css');
+  require('swiper/dist/css/swiper.css');
 }
 
 import _style from './style/main.scss';

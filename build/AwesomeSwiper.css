@@ -1,5 +1,5 @@
 /*!
- * awesome-swiper v1.4.1
+ * awesome-swiper v1.4.2
  * Homepage: https://github.com/cycdpo/awesome-swiper#readme
  * Released under the MIT License.
  */
