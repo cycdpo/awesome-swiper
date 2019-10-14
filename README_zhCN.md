@@ -22,7 +22,10 @@
 [jsdelivr-url]: https://www.jsdelivr.com/package/npm/awesome-swiper
 [license-image]: https://img.shields.io/npm/l/awesome-swiper.svg?style=flat-square
 
-awesome-swiper 基于 [swiper 4+](https://github.com/nolimits4web/Swiper). ([Releases](https://github.com/cycdpo/awesome-swiper/releases) | [Demo](https://cycdpo.github.io/awesome-swiper/))
+[new-url]: https://github.com/cycjimmy/awesome-swiper
+
+* **该仓库已经迁移到[@cycjimmy/awesome-swiper][new-url]. 请切换至[@cycjimmy/awesome-swiper][new-url]以保持代码最新.**
+* awesome-swiper 基于 [swiper 4](https://github.com/nolimits4web/Swiper/tree/Swiper4). ([Releases](https://github.com/cycdpo/awesome-swiper/releases) | [Demo](https://cycdpo.github.io/awesome-swiper/))
 
 
 [English](https://github.com/cycdpo/awesome-swiper/blob/master/README.md) | [中文](https://github.com/cycdpo/awesome-swiper/blob/master/README_zhCN.md)
@@ -38,7 +41,7 @@ $ yarn add awesome-swiper
 ```
 
 ## 使用
-**Awesome Swiper 基于 [Swiper 4+](https://github.com/nolimits4web/Swiper). 首先将 swiper 加入你的工程**
+**Awesome Swiper 基于 [Swiper 4](https://github.com/nolimits4web/Swiper/tree/Swiper4). 首先将 swiper4 加入你的工程**
 
 ```javascript
 import Swiper from 'swiper';
@@ -59,7 +62,7 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
 ```
 
 ### `AwesomeSwiper()` 参数:
-* `SwiperModule`: [Object] 可设置自定义的 swiper 构造函数. 注意确保swiper版本为4以上
+* `SwiperModule`: [Object] 可设置自定义的 swiper 构造函数. 注意确保swiper版本为4
 
 ### `AwesomeSwiper().init()` 参数:
 * `context`: [String | Element] swiper的包裹层. 该包裹层的宽高大小必须提前设定.
@@ -74,7 +77,7 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
   * `autoFixFullImg`: [Boolean] 设置 `true` 来自动适应满图片. 默认值为 `false`. 提示: 由于对性能有影响, 非必要情况请勿设置.
   * `pagination`: [Object] 设置分页器. 如果你不想要分页器, 将其设为 `null`.
     * `color`: [String] `'default'` 默认颜色是蓝色. 你也可以设置`'black'` 或者 `'white'` 或者嵌入自定义样式
-    * `dynamicBullets`: [Boolean] 动态分页器. 默认值为 `false`. 查看[Swiper Pagination](http://idangero.us/swiper/api/#pagination)
+    * `dynamicBullets`: [Boolean] 动态分页器. 默认值为 `false`. 查看[Swiper Pagination](https://github.com/nolimits4web/Swiper/blob/Swiper4/API.md#pagination)
     * `style`: [Object] 自定义分页器样式. 建议再此只对位置样式进行调整.
   * `navigation`: [Object] 设置导航按钮. 如果你不想要导航按钮, 将其设为 `null`.
     * `color`: [String] `'default'` 默认颜色是蓝色. 你也可以设置`'black'` 或者 `'white'`

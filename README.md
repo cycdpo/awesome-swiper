@@ -22,7 +22,11 @@
 [jsdelivr-url]: https://www.jsdelivr.com/package/npm/awesome-swiper
 [license-image]: https://img.shields.io/npm/l/awesome-swiper.svg?style=flat-square
 
-awesome-swiper based on [swiper 4+](https://github.com/nolimits4web/Swiper). ([Releases](https://github.com/cycdpo/awesome-swiper/releases) | [Demo](https://cycdpo.github.io/awesome-swiper/))
+
+[new-url]: https://github.com/cycjimmy/awesome-swiper
+
+* **This package has been migrated to [@cycjimmy/awesome-swiper][new-url] for scoped NPM package. Please switch to [@cycjimmy/awesome-swiper][new-url] to stay up to date.**
+* awesome-swiper based on [swiper 4](https://github.com/nolimits4web/Swiper/tree/Swiper4). ([Releases](https://github.com/cycdpo/awesome-swiper/releases) | [Demo](https://cycdpo.github.io/awesome-swiper/))
 
 [English](https://github.com/cycdpo/awesome-swiper/blob/master/README.md) | [中文](https://github.com/cycdpo/awesome-swiper/blob/master/README_zhCN.md)
 ***
@@ -37,7 +41,7 @@ $ yarn add awesome-swiper
 ```
 
 ## Usage
-**Awesome Swiper based on [Swiper 4+](https://github.com/nolimits4web/Swiper). Add Script of swiper in your project first**
+**Awesome Swiper based on [Swiper 4](https://github.com/nolimits4web/Swiper/tree/Swiper4). Add Script of swiper4 in your project first**
 
 ```javascript
 import Swiper from 'swiper';
@@ -58,7 +62,7 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
 ```
 
 ### `AwesomeSwiper()` params:
-* `SwiperModule`: [Object] Set custom swiper constructor. Make sure the swiper version is 4+.
+* `SwiperModule`: [Object] Set custom swiper constructor. Make sure the swiper version is 4.
 
 ### `AwesomeSwiper().init()` params:
 * `context`: [String | Element] the wrapper of swiper. Height and width of wrapper must be initialized.
@@ -74,7 +78,7 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
   * `pagination`: [Object] Set pagination. If you do not want a pagination, set `null`.
     * `color`: [String] `'default'` is blue. You also can set `'black'` or `'white'` and embed your own style
     * `style`: [Object] Custom pagination style. Recommended to only adjust the position here.
-    * `dynamicBullets`: [Boolean] Good to enable if you use bullets pagination with a lot of slides. So it will keep only few bullets visible at the same time. Default `false`. See [Swiper Pagination](http://idangero.us/swiper/api/#pagination)
+    * `dynamicBullets`: [Boolean] Good to enable if you use bullets pagination with a lot of slides. So it will keep only few bullets visible at the same time. Default `false`. See [Swiper Pagination](https://github.com/nolimits4web/Swiper/blob/Swiper4/API.md#pagination)
   * `navigation`: [Object] Set navigation. If you do not want a navigation, set `null`.
     * `color`: [String] `'default'` is blue. You also can set `'black'` or `'white'`
     * `styles`: [Object] Custom style
