@@ -1,5 +1,4 @@
 # Awesome Swiper
-
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
 [![David deps][david-image]][david-url]
@@ -107,7 +106,6 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
 ## Use in browser
 ```html
 <link href="swiper.min.css" rel="stylesheet">
-<link href="AwesomeSwiper.min.css" rel="stylesheet">
 
 <div id="basic" class="swiper-container">
   <div class="swiper-wrapper">
@@ -125,8 +123,6 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
 
 or use standalone:
 ```html
-<link href="AwesomeSwiper.standalone.min.css" rel="stylesheet">
-
 <div id="basic" class="swiper-container">
   ...
 </div>
@@ -141,11 +137,9 @@ or use standalone:
 
 ## CDN
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/awesome-swiper@1/build/AwesomeSwiper.min.css">
 <script src="https://cdn.jsdelivr.net/npm/awesome-swiper@1/build/AwesomeSwiper.min.js"></script>
 
 // standalone
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/awesome-swiper@1/build/AwesomeSwiper.standalone.min.css">
 <script src="https://cdn.jsdelivr.net/npm/awesome-swiper@1/build/AwesomeSwiper.standalone.min.js"></script>
 ```
 

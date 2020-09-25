@@ -1,17 +1,18 @@
 const
   path = require('path')
-  , webpack = require('webpack')
+  , Webpack = require('webpack')
   , packageJson = require('./package.json')
 
   // webpack plugin
   , BrowserSyncPlugin = require('browser-sync-webpack-plugin')
   , HtmlWebpackPlugin = require('html-webpack-plugin')
   , TerserPlugin = require('terser-webpack-plugin')
-  , ExtractTextPlugin = require('extract-text-webpack-plugin')
-  , OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
   , {CleanWebpackPlugin} = require('clean-webpack-plugin')
   , CopyWebpackPlugin = require('copy-webpack-plugin')
   , DefinePlugin = require('webpack/lib/DefinePlugin')
+
+  // config
+  , terserConfig = require('@cycjimmy/config-lib/terserWebpackPlugin/2.x/production')
 ;
 
 const
@@ -45,8 +46,8 @@ const styleLoaderConfig = {
   postLoader: {
     loader: 'postcss-loader',
     options: {
-      config: {
-        path: path.resolve('postcss.config.js'),
+      postcssOptions: {
+        config: path.resolve('postcss.config.js'),
       },
     },
   },
@@ -62,26 +63,7 @@ const styleLoaderConfig = {
 
 const OPTIMIZATION_OPTIONS = {
   minimize: true,
-  minimizer: [new TerserPlugin({
-    extractComments: false,
-    terserOptions: {
-      ie8: false,
-      safari10: true,
-      ecma: 5,
-      output: {
-        comments: /^!/,
-        beautify: false
-      },
-      compress: {
-        drop_debugger: true,
-        drop_console: true,
-        collapse_vars: true,
-        reduce_vars: true
-      },
-      warnings: false,
-      sourceMap: true
-    },
-  })],
+  minimizer: [new TerserPlugin(terserConfig)],
 };
 
 
@@ -118,39 +100,25 @@ const config = {
 
       // style
       {
-        test: /\.scss$/,
-        exclude: [
-          path.resolve('node_modules'),
+        test: /\.css$/,
+        use: [
+          styleLoaderConfig.styleLoader,
+          styleLoaderConfig.cssLoaderNoModules
         ],
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            styleLoaderConfig.cssLoader,
-            styleLoaderConfig.postLoader,
-            styleLoaderConfig.sassLoader,
-          ],
-        })
       },
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            styleLoaderConfig.cssLoaderNoModules
-          ],
-        })
+        test: /\.scss$/,
+        use: [
+          styleLoaderConfig.styleLoader,
+          styleLoaderConfig.cssLoader,
+          styleLoaderConfig.postLoader,
+          styleLoaderConfig.sassLoader,
+        ],
       },
 
       // Pug template
       {
         test: /\.pug$/,
-        include: [
-          path.resolve('src'),
-          path.resolve('static')
-        ],
-        exclude: [
-          path.resolve('node_modules')
-        ],
         loader: 'pug-loader'
       }
     ]
@@ -164,7 +132,7 @@ const config = {
       STANDALONE: JSON.stringify(IS_STANDALONE),
     }),
 
-    new webpack.BannerPlugin({
+    new Webpack.BannerPlugin({
       banner: packageJson.name + ' v' + packageJson.version +
         '\nHomepage: ' + packageJson.homepage +
         '\nReleased under the ' + packageJson.license + ' License.'
@@ -184,12 +152,6 @@ if (IS_DEVELOPMENT) {
 
 
   config.plugins.push(
-    new ExtractTextPlugin({
-      filename: libName + '.css',
-      ignoreOrder: true,
-      allChunks: true
-    }),
-
     new HtmlWebpackPlugin({
       inject: false,
       template: path.resolve('./static', 'view', 'index.pug'),
@@ -197,7 +159,7 @@ if (IS_DEVELOPMENT) {
 
     new CleanWebpackPlugin({
       verbose: true,
-      dry: false
+      cleanStaleWebpackAssets: false,
     }),
 
     new CopyWebpackPlugin([{
@@ -228,15 +190,9 @@ if (IS_PACK || IS_PRODUCTION) {
     config.output.filename = libName + '.js';
 
     config.plugins.push(
-      new ExtractTextPlugin({
-        filename: libName + '.css',
-        ignoreOrder: true,
-        allChunks: true
-      }),
-
       new CleanWebpackPlugin({
         verbose: true,
-        dry: false
+        cleanStaleWebpackAssets: false,
       }),
     );
   }
@@ -247,15 +203,7 @@ if (IS_PACK || IS_PRODUCTION) {
     config.output.filename = libName + '.min.js';
 
     config.plugins.push(
-      new webpack.HashedModuleIdsPlugin(),
-
-      new ExtractTextPlugin({
-        filename: libName + '.min.css',
-        ignoreOrder: true,
-        allChunks: true
-      }),
-
-      new OptimizeCssAssetsPlugin()
+      new Webpack.HashedModuleIdsPlugin(),
     );
 
     config.optimization = OPTIMIZATION_OPTIONS;
@@ -270,17 +218,11 @@ if (IS_STANDALONE) {
   config.output.filename = libName + '.standalone.min.js';
 
   config.plugins.push(
-    new webpack.HashedModuleIdsPlugin(),
-
-    new ExtractTextPlugin({
-      filename: libName + '.standalone.min.css',
-      ignoreOrder: true,
-      allChunks: true
-    }),
+    new Webpack.HashedModuleIdsPlugin(),
 
     new CleanWebpackPlugin({
       verbose: true,
-      dry: false
+      cleanStaleWebpackAssets: false,
     }),
 
     new HtmlWebpackPlugin({
@@ -293,8 +235,6 @@ if (IS_STANDALONE) {
       to: path.resolve('standalone'),
       flatten: true
     }]),
-
-    new OptimizeCssAssetsPlugin()
   );
 
   config.optimization = OPTIMIZATION_OPTIONS;

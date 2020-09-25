@@ -107,7 +107,6 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
 ## 在浏览器中使用
 ```html
 <link href="swiper.min.css" rel="stylesheet">
-<link href="AwesomeSwiper.min.css" rel="stylesheet">
 
 <div id="basic" class="swiper-container">
   <div class="swiper-wrapper">
@@ -125,8 +124,6 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
 
 或者使用独立版本:
 ```html
-<link href="AwesomeSwiper.standalone.min.css" rel="stylesheet">
-
 <div id="basic" class="swiper-container">
   ...
 </div>
@@ -141,11 +138,9 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
 
 ## CDN
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/awesome-swiper@1/build/AwesomeSwiper.min.css">
 <script src="https://cdn.jsdelivr.net/npm/awesome-swiper@1/build/AwesomeSwiper.min.js"></script>
 
 // 独立版本
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/awesome-swiper@1/build/AwesomeSwiper.standalone.min.css">
 <script src="https://cdn.jsdelivr.net/npm/awesome-swiper@1/build/AwesomeSwiper.standalone.min.js"></script>
 ```
 
