@@ -26,7 +26,8 @@ const
 
 const styleLoaderConfig = {
   styleLoader: {
-    loader: 'style-loader'
+    loader: 'style-loader',
+    options: {injectType: 'singletonStyleTag'},
   },
   cssLoader: {
     loader: 'css-loader',
@@ -40,7 +41,7 @@ const styleLoaderConfig = {
   cssLoaderNoModules: {
     loader: 'css-loader',
     options: {
-      importLoaders: 2
+      importLoaders: 1
     },
   },
   postLoader: {
@@ -55,7 +56,7 @@ const styleLoaderConfig = {
     loader: 'sass-loader',
     options: {
       sassOptions: {
-        outputStyle: 'expanded',
+        outputStyle: 'compressed',
       },
     },
   },
@@ -86,7 +87,10 @@ const config = {
       path.resolve('static'),
       path.resolve('node_modules')
     ],
-    'extensions': ['.js']
+    alias: {
+      swiper: path.resolve('node_modules', 'swiper', 'dist', 'js', 'swiper.js')
+    },
+    extensions: ['.js']
   },
 
   module: {
@@ -103,7 +107,8 @@ const config = {
         test: /\.css$/,
         use: [
           styleLoaderConfig.styleLoader,
-          styleLoaderConfig.cssLoaderNoModules
+          styleLoaderConfig.cssLoaderNoModules,
+          styleLoaderConfig.postLoader,
         ],
       },
       {

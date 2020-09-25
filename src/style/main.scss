@@ -2,7 +2,7 @@
 
 $space: 10px;
 
-.resetNavigationEl {
+%resetNavigationEl {
   position: static;
   margin: auto;
   top: auto;
@@ -10,6 +10,18 @@ $space: 10px;
   left: auto;
   bottom: auto;
   background: none;
+}
+
+.resetNavigationEl {
+  @extend %resetNavigationEl;
+
+  &:global(.swiper-button-prev) {
+    @extend %resetNavigationEl;
+  }
+
+  &:global(.swiper-button-next) {
+    @extend %resetNavigationEl;
+  }
 }
 
 :global(.swiper-explain) {
