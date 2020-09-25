@@ -2,25 +2,11 @@
 
 $space: 10px;
 
-%resetNavigationEl {
-  position: static;
-  margin: auto;
-  top: auto;
-  right: auto;
-  left: auto;
-  bottom: auto;
-  background: none;
-}
-
-.resetNavigationEl {
-  @extend %resetNavigationEl;
-
-  &:global(.swiper-button-prev) {
-    @extend %resetNavigationEl;
-  }
-
-  &:global(.swiper-button-next) {
-    @extend %resetNavigationEl;
+.customNavigationEl {
+  &:global(.swiper-button-disabled) {
+    opacity: .35;
+    cursor: auto;
+    pointer-events: none;
   }
 }
 

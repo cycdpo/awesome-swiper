@@ -220,8 +220,8 @@ export default class AwesomeSwiper {
         this.el.navigation.nextEl = isString(_navigation.custom.nextEl)
           ? document.querySelector(_navigation.custom.nextEl)
           : _navigation.custom.nextEl;
-        this.el.navigation.prevEl.classList.add('swiper-button-prev', _style.resetNavigationEl);
-        this.el.navigation.nextEl.classList.add('swiper-button-next', _style.resetNavigationEl);
+        this.el.navigation.prevEl.classList.add(_style.customNavigationEl);
+        this.el.navigation.nextEl.classList.add(_style.customNavigationEl);
       } else {
         // add to Dom
         this.el.navigation.prevEl = this.emptyDiv.cloneNode();
@@ -272,10 +272,14 @@ export default class AwesomeSwiper {
   };
 
   _fixFullImg(eContainer) {
-    let
-      slideClientRect = eContainer.querySelector('.swiper-slide').getBoundingClientRect()
-      , aImgs = nodeListToArray(eContainer.querySelectorAll('.swiper-full-img>img'))
-    ;
+    const eSide = eContainer.querySelector('.swiper-slide');
+    // fix empty swiper
+    if (!eSide) {
+      return;
+    }
+
+    const slideClientRect = eSide.getBoundingClientRect();
+    const aImgs = nodeListToArray(eContainer.querySelectorAll('.swiper-full-img > img'));
 
     aImgs.forEach(img => {
       let imgNaturalDimensions = _getImgNaturalDimensions(img);
