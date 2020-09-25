@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/cycdpo/awesome-swiper/compare/v1.5.2...v1.6.0) (2020-09-25)
+
+
+### Features
+
+* add a new class 'swiper-full-bg'; ([7d9c8a6](https://github.com/cycdpo/awesome-swiper/commit/7d9c8a6a217df523ea3a7a07e221eded3150218f))
+
 ## [1.5.2](https://github.com/cycdpo/awesome-swiper/compare/v1.5.1...v1.5.2) (2020-09-25)
 
 
