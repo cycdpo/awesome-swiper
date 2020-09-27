@@ -135,8 +135,6 @@ let awesomeSwiper = new AwesomeSwiper([SwiperModule])
 </script>
 ```
 
-**务必使用对应版本的JS和CSS文件**
-
 ## CDN
 ```html
 <script src="https://cdn.jsdelivr.net/npm/awesome-swiper@1/build/AwesomeSwiper.min.js"></script>
